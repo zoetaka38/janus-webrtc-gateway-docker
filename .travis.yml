@@ -1,0 +1,7 @@
+sudo: required
+services:
+  - docker
+
+script:
+  - docker build -t zoetaka38/janus-gateway-docker .
+  - echo "success"

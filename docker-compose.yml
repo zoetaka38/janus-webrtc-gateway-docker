@@ -1,0 +1,17 @@
+version: "2"
+
+services:
+  janus-gateway:
+    # image: zoetaka38/janus-webrtc-gateway-docker:latest
+    build: .
+    container_name: janus
+    volumes:
+      - "./conf/janus/:/usr/local/etc/janus/"
+      - "./nginx.conf:/usr/local/nginx/nginx.conf"
+    ports:
+      - 80:80
+      # - 443:443
+      - 8004:8004
+      - 8004:8004/udp
+      - 8088:8088
+      - 8188:8188
