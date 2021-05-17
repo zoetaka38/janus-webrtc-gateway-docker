@@ -177,8 +177,11 @@ file-ondemand-sample: {
 h264-sample: {
 	type = "rtp"
 	id = 10
-	description = "H.264 live stream coming from gstreamer"
-	audio = false
+	description = "H.264 live stream"
+	audio = true
+	audioport = 8002
+	audiopt = 111
+	audiortpmap = "opus/48000/2"
 	video = true
 	videoport = 8004
 	videopt = 126
