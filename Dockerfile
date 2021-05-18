@@ -190,11 +190,11 @@ RUN OPENRESTY="1.13.6.2" && ZLIB="zlib-1.2.11" && PCRE="pcre-8.41" &&  openresty
 # If you want to use the openssl instead of boringssl
 # RUN apt-get update -y && apt-get install -y libssl-dev
 RUN apt-get -y update && apt-get install -y --no-install-recommends \
-        g++ \
-        gcc \
-        libc6-dev \
-        make \
-        pkg-config \
+    g++ \
+    gcc \
+    libc6-dev \
+    make \
+    pkg-config \
     && rm -rf /var/lib/apt/lists/*
 ENV GOLANG_VERSION 1.7.5
 ENV GOLANG_DOWNLOAD_URL https://golang.org/dl/go$GOLANG_VERSION.linux-amd64.tar.gz
@@ -227,7 +227,7 @@ RUN git clone https://boringssl.googlesource.com/boringssl && \
     sudo cp build/crypto/libcrypto.a /opt/boringssl/lib/
 
 
-RUN LIBWEBSOCKET="3.1.0" && wget https://github.com/warmcat/libwebsockets/archive/v$LIBWEBSOCKET.tar.gz && \
+RUN LIBWEBSOCKET="3.2.0" && wget https://github.com/warmcat/libwebsockets/archive/v$LIBWEBSOCKET.tar.gz && \
     tar xzvf v$LIBWEBSOCKET.tar.gz && \
     cd libwebsockets-$LIBWEBSOCKET && \
     mkdir build && \
@@ -294,7 +294,7 @@ RUN make && make install
 
 
 RUN cd / && git clone https://github.com/meetecho/janus-gateway.git && cd /janus-gateway && \
-    git checkout refs/tags/v0.10.9 && \
+    git checkout refs/tags/v0.11.2 && \
     sh autogen.sh &&  \
     PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure \
     --enable-post-processing \
